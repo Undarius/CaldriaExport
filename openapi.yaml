@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: Kanka Campaign Data API
+  description: Zugriff auf Ressourcen (z. B. Characters, Organisations, Locations) einer Kanka-Kampagne über die Kanka API.
+  version: 1.0.0
+servers:
+  - url: https://api.kanka.io/1.0
+    description: Kanka API Server
+paths:
+  /campaigns/{campaign_id}/{resource}:
+    get:
+      operationId: getResourceData
+      summary: Listet Einträge einer Ressource in der angegebenen Kampagne auf.
+      parameters:
+        - name: Accept
+          in: header
+          required: true
+          schema:
+            type: string
+            enum: [application/json]
+        - name: Content-Type
+          in: header
+          required: true
+          schema:
+            type: string
+            enum: [application/json]
+        - name: campaign_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: resource
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - characters
+              - organisations
+              - locations
+              - families
+              - items
+              - journals
+              - quests
+              - events
+              - races
+              - tags
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Erfolgreiche Antwort
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                  links:
+                    type: object
+                  meta:
+                    type: object
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas: {}
