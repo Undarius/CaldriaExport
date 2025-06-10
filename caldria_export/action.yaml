@@ -1,0 +1,15 @@
+schema_version: 1.0
+name_for_human: Caldria Export
+name_for_model: caldriaExport
+description_for_human: Exportiere Ressourcen aus einer Kanka-Kampagne wie Charaktere, Orte, Organisationen usw.
+description_for_model: GPT kann diese API nutzen, um Informationen über Charaktere, Orte und mehr aus einer Kanka-Kampagne zu laden.
+auth:
+  type: bearer
+  authorization_type: header
+  verification_tokens: {}
+api:
+  type: openapi
+  url: https://raw.githubusercontent.com/Undarius/CaldriaExport/main/openapi.yaml
+logo_url: https://kanka.io/images/logos/logo.svg
+contact_email: m.mollenhauer@outlook.com
+legal_info_url: https://kanka.io/privacy-policy
