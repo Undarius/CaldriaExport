@@ -12,18 +12,6 @@ paths:
       operationId: getResourceData
       summary: Listet Einträge einer Ressource in der angegebenen Kampagne auf.
       parameters:
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            enum: [application/json]
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            enum: [application/json]
         - name: campaign_id
           in: path
           required: true
